@@ -6,6 +6,6 @@ class BikesController < ApplicationController
     @bike = Bike.find(params[:id])
     renter = @bike.user_id
     @user = User.find(renter)
-    @booking = Booking.newe
+    @booking = Booking.new
   end
 end
