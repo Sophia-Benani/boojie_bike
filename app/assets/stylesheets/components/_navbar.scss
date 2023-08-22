@@ -1,12 +1,22 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #EAF7FF;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  color: #1F438C
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 200px;
+}
+
+.nav-link {
+  color: #1F438C
+}
+
+.dropdown-item {
+  color: #1F438C
 }
