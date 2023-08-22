@@ -1,8 +1,23 @@
-.advantage {
+.banner h1 {
   
 }
-.stack {
 
+.btn-flat {
+  display: flex;
+  color: white;
+  width: 40px;
+  border-radius: 4px;
+  background: rosybrown;
+  justify-content: center;
+}
+
+.btn-flat:hover {
+  background: rosybrown;
+  color: white;
+}
+
+
+.stack {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -13,31 +28,27 @@
 }
 
 .box_left {
-  background: #d86c06;
+  background: #EAF7FF;
   border-radius: 25px;
   height: 147px;
   width: 250px;
   padding: 64px 10px 23px 14px;
-  // align-items: flex-end;
-  // text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 .box_center {
-  background: #d86c06;
+  background: #EAF7FF;
   border-radius: 25px;
   height: 147px;
   width: 250px;
   padding: 64px 10px 23px 14px;
-  // align-items: flex-end;
-  // text-align: center;
-
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .box_right {
-  background: #d86c06;
+  background: #EAF7FF;
   border-radius: 25px;
   height: 147px;
   width: 250px;
   padding: 64px 10px 23px 14px;
-  // align-items: flex-end;
-  // text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
