@@ -1,1 +1,43 @@
-// Specific CSS for your home-page
+.advantage {
+  
+}
+.stack {
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 100px;
+  margin-left: 50px;
+  bottom: 20px;
+  height: auto;
+}
+
+.box_left {
+  background: #d86c06;
+  border-radius: 25px;
+  height: 147px;
+  width: 250px;
+  padding: 64px 10px 23px 14px;
+  // align-items: flex-end;
+  // text-align: center;
+}
+.box_center {
+  background: #d86c06;
+  border-radius: 25px;
+  height: 147px;
+  width: 250px;
+  padding: 64px 10px 23px 14px;
+  // align-items: flex-end;
+  // text-align: center;
+
+}
+
+.box_right {
+  background: #d86c06;
+  border-radius: 25px;
+  height: 147px;
+  width: 250px;
+  padding: 64px 10px 23px 14px;
+  // align-items: flex-end;
+  // text-align: center;
+}
