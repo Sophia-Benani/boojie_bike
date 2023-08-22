@@ -32,4 +32,18 @@
     <h3>Marque : <%= @bike.brand %></h3>
     <h3>Accessoires : <%= @bike.accessories %></h3>
     <h3>Loué par : <%= @user.first_name %> <%= @user.last_name %></h3>
+    <%= simple_form_for @booking , url: bike_bookings_path(bike_id: @bike.id), method: :post do |f| %>
+    <%= f.input :user_id,
+                as: :hidden,
+                input_html: { value: current_user.id } %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%# <%= f.input :start_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker"}}%>
+    <%# <%= f.input :end_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker"}}%>
+    <%= f.submit %>
+    <% end %>
 </div>
