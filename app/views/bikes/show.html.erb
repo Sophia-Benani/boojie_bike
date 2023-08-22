@@ -1,2 +1,35 @@
-<h1>Bikes#show</h1>
-<p>Find me in app/views/bikes/show.html.erb</p>
+<div class="container">
+    <h1><%= @bike.name %></h1>
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= cl_image_tag("hbdpes76tnsfbgvwbahg", class:"d-block w-100") %>
+          </div>
+          <div class="carousel-item">
+            <%= cl_image_tag("maqdj5jtfqdo9wmszcoj", class:"d-block w-100") %>
+          </div>
+          <div class="carousel-item">
+            <%= cl_image_tag("pbysol6pwi3xrzkdg6df", class:"d-block w-100") %>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <h2>Categorie : <%= @bike.category %> </h2>
+    <h3>Description</h3>
+    <p><%= @bike.description %></p>
+    <h3>Marque : <%= @bike.brand %></h3>
+    <h3>Accessoires : <%= @bike.accessories %></h3>
+    <h3>Loué par : <%= @user.first_name %> <%= @user.last_name %></h3>
+</div>

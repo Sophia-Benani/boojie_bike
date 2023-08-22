@@ -3,5 +3,8 @@ class BikesController < ApplicationController
   end
 
   def show
+    @bike = Bike.find(params[:id])
+    renter = @bike.user_id
+    @user = User.find(renter)
   end
 end
