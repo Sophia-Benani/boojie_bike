@@ -9,4 +9,23 @@ class BikesController < ApplicationController
     @user = User.find(renter)
     @booking = Booking.new
   end
+
+  def new
+    @bike = Bike.new
+  end
+
+  def create
+    @bike = Bike.new(bike_params)
+    @bike.user_id = current_user.id
+    if @bike.save
+      redirect_to bikes_path, notice: 'Bike was successfully created.'
+    end
+  end
+
+end
+
+private
+
+def bike_params
+  params.require(:bike).permit(:name, :brand, :category, :description, :address, :accessories, :price, photos: [])
 end
