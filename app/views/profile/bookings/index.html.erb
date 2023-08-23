@@ -1,9 +1,23 @@
 <h1>Mes reservations</h1>
-<% @bookings.each do |booking| %>
-  <p>
-    <p><%= booking.id %></p>
-    <p><%= booking.user_id %></p>
-    <p><%= booking.start_date %></p>
-    <p><%= booking.end_date %></p>
-  </p>
- <% end %>
+
+ <div class="container">
+  <div class="row gap-3 w-75 p-3">
+    <% @bookings.each do |booking| %>
+      <div class="col-6">
+        <div class="card-product">
+          <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
+          <div class="product-info">
+            <div class="product-details">
+              <% bike = Bike.find(booking.bike_id) %>
+              <h2><%= bike.name %></h2>
+              <p>Réservé</p>
+              <p>du <%= booking.start_date %></p>
+              <p>au <%= booking.end_date %></p>
+              <p><%= bike.price %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+     <% end %>
+  </div>
+</div>
