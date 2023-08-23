@@ -1,14 +1,15 @@
-<div class="container">
+<div class="page-container">
     <h1><%= @bike.name %></h1>
+    <div class="d-flex justify-content-center align-items-center">
       <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" id="btn-carousel" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" id="btn-carousel" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" id="btn-carousel" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
           <% @bike.photos.each do |photo| %>
-          <div class="carousel-item active">
+          <div class="carousel-item active justify-content-center">
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
           </div>
           <% end %>
@@ -22,39 +23,45 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
-    <div class=bikeinformation>
-    <h2>Categorie : <%= @bike.category %> </h2>
-    <h3>Description</h3>
-    <p><%= @bike.description %></p>
-    <h3>Marque : <%= @bike.brand %></h3>
-    <h3>Accessoires : <%= @bike.accessories %></h3>
-    <h3>Proposé par : <%= @user.first_name %> <%= @user.last_name %></h3>
-    <div>
-    <h2>Formulaire de réservation</h2>
-    <%= simple_form_for @booking , url: bike_bookings_path(bike_id: @bike.id), method: :post do |f| %>
-    <%= f.input :user_id,
-                as: :hidden,
-                input_html: { value: current_user.id } %>
-    <%= f.input :start_date,
-                as: :string,
-                label: "Début",
-                input_html: { data: { controller: "datepicker"}}%>
-    <%= f.input :end_date,
-                as: :string,
-                label: "Fin",
-                input_html: { data: { controller: "datepicker"}} %>
-    <%= f.submit 'Réserver', class:"btn btn-primary" %>
-    <% end %>
     </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+              <h5 class="card-title">Informations sur le vélo</h5>
+              <p class="card-text">Categorie : <%= @bike.category %></p>
+              <p class="card-text">Description : <%= @bike.description %></p>
+              <p class="card-text">Marque : <%= @bike.brand %></p>
+              <p class="card-text">Accessoires : <%= @bike.accessories %></p>
+              <p class="card-text">Prix : <%= @bike.price %>€ par jour</p>
+              <%# <p class="card-text">Proposé par : <%= @user.first_name %> <%# @user.last_name %>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Formulaire de réservation</h5>
+          <form>
+            <div class="mb-3">
+              <input type="hidden" name="user_id" value="123">
+            </div>
+            <div class="mb-3">
+              <label for="start_date" class="form-label">Début</label>
+              <input type="text" class="form-control" id="start_date" data-controller="datepicker">
+            </div>
+            <div class="mb-3">
+              <label for="end_date" class="form-label">Fin</label>
+              <input type="text" class="form-control" id="end_date" data-controller="datepicker">
+            </div>
+            <button type="submit" class="btn btn-primary">Réserver</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
- <div class= "recapcontainer">
-  <div class= recaplayout>
- <h4>Recapitulatif</h4>
- <div class= "formulary">
- </div>
- <div class= "textlayout"></div><p>Prix journalier: 7€</p>
- <p>Prix total: 8 jours x 7€ = 56€</p>
- <a class="btn btn-flat" href="#">Réserver</a>
+
 </div>
- </div>
