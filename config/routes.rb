@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :bikes, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:index, :new, :create]
-    namespace :renter, only: [:index] do
-      :bookings
-    end
+  end
+  namespace :profile do
+    resources :bookings, only: [:index]
+    resources :bikes, only: [:index]
   end
 end
