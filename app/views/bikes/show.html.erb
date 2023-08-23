@@ -7,15 +7,11 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
+          <% @bike.photos.each do |photo| %>
           <div class="carousel-item active">
-            <%= cl_image_tag("ghmcnxnb8bw2bree5sgo", class:"d-block w-100") %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
           </div>
-          <div class="carousel-item">
-            <%= cl_image_tag("ghmcnxnb8bw2bree5sgo", class:"d-block w-100") %>
-          </div>
-          <div class="carousel-item">
-            <%= cl_image_tag("ghmcnxnb8bw2bree5sgo", class:"d-block w-100") %>
-          </div>
+          <% end %>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -33,7 +29,24 @@
     <p><%= @bike.description %></p>
     <h3>Marque : <%= @bike.brand %></h3>
     <h3>Accessoires : <%= @bike.accessories %></h3>
-    <h3>Loué par : <%= @user.first_name %> <%= @user.last_name %></h3></div>
+    <h3>Proposé par : <%= @user.first_name %> <%= @user.last_name %></h3>
+    <div>
+    <h2>Formulaire de réservation</h2>
+    <%= simple_form_for @booking , url: bike_bookings_path(bike_id: @bike.id), method: :post do |f| %>
+    <%= f.input :user_id,
+                as: :hidden,
+                input_html: { value: current_user.id } %>
+    <%= f.input :start_date,
+                as: :string,
+                label: "Début",
+                input_html: { data: { controller: "datepicker"}}%>
+    <%= f.input :end_date,
+                as: :string,
+                label: "Fin",
+                input_html: { data: { controller: "datepicker"}} %>
+    <%= f.submit 'Réserver', class:"btn btn-primary" %>
+    <% end %>
+    </div>
 </div>
  <div class= "recapcontainer">
   <div class= recaplayout>

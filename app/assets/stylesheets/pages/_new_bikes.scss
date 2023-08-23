@@ -1,0 +1,28 @@
+.blue-card {
+  background-color: #eaf7ff; /* Couleur de la carte bleu ciel */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  width: 70%; /* La carte prendra 70% de la largeur de l'écran */
+  margin: 0 auto; /* Centre la carte horizontalement */
+}
+
+.blue-text {
+  color: #1f438c; /* Couleur de texte bleu foncé */
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.btn-primary {
+  background-color: #f24987; /* Couleur de fond rose */
+  color: white; /* Couleur de texte blanche */
+  margin-top: 10px; /* Marge en haut du bouton */
+  margin-left: auto; /* Centre le bouton horizontalement */
+  margin-right: auto; /* Centre le bouton horizontalement */
+  display: block; /* Change l'affichage du bouton en bloc pour centrer horizontalement */
+  border: none; /* Supprime la bordure par défaut */
+  padding: 8px 16px; /* Ajoute un peu de rembourrage au bouton */
+  border-radius: 4px; /* Ajoute un peu de bord arrondi au bouton */
+}

@@ -1,0 +1,15 @@
+<h1>Mes Vélos</h1>
+<%= link_to "ajouter une annonce de vélo", new_bike_path, class: "btn btn-flat" %>
+
+<% @bikes.each do |bike| %>
+  <p><%= bike.id %></p>
+  <p><%= bike.user_id %></p>
+  <p><%= bike.name %></p>
+  <p><%= bike.category %></p>
+  <p>Réservations</p>
+  <ul>
+  <% bike.bookings.each do |booking| %>
+  <li>Reservé du <%= booking.start_date %> au <%= booking.end_date %> </li>
+  <% end %>
+  </ul>
+ <% end %>
