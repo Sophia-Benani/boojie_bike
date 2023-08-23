@@ -1,3 +1,66 @@
 // Import page-specific CSS files here.
 @import "home";
 
+/* Assurez-vous que les cartes soient affichées dans une rangée */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espace horizontal entre les cartes */
+  justify-content: space-between;
+}
+
+/* Définissez la largeur des cartes pour qu'elles prennent 70% de l'écran */
+.card-row {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Assurez-vous que les cartes soient affichées dans une rangée */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espace vertical entre les rangées */
+  justify-content: space-between;
+}
+
+/* Définissez la largeur des cartes pour qu'elles prennent 70% de l'écran */
+.card-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Style des cartes */
+/* Style des cartes */
+.card-product {
+  display: flex;
+  max-width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-product img {
+  width: 40%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-details h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: green;
+}
