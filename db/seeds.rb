@@ -21,6 +21,9 @@ electro = Bike.create!({name: "Electro", brand:"O2feel", address: "Bordeaux", ca
 bolide =  Bike.create!({name: "Bolide", brand:"Peugeot", address: "Paris", category: "VTT", description: "géniale en forêt", accessories: "anti-vol", user_id: david.id })
 
 puts "Creating bookings..."
-booking1 = Booking.create!({ start_date: "18/02/2023", end_date: "20/02/2023", user_id: david.id, bike_id: electro.id })
+Booking.create!({ start_date: "18/02/2023", end_date: "20/02/2023", user_id: david.id, bike_id: electro.id })
+Booking.create!({ start_date: "18/03/2023", end_date: "20/03/2023", user_id: david.id, bike_id: bolide.id })
+Booking.create!({ start_date: "18/03/2023", end_date: "20/03/2023", user_id: elodie.id, bike_id: electro.id })
+Booking.create!({ start_date: "18/02/2023", end_date: "20/02/2023", user_id: elodie.id, bike_id: bolide.id })
 
 puts "Finished!"

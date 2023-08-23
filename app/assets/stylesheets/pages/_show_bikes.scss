@@ -1,0 +1,35 @@
+.recapcontainer {
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.recaplayout {
+  justify-content: center;
+  height: 200px;
+  width: 160px;
+  background-color: rgb(205, 228, 250);
+  border: 1px solid;
+  border-radius: 25px;
+  border-color: #C7F5DB;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #670BFF;
+}
+
+.btn-flat:hover {
+  background: #4D04C4;
+  color: white;
+}
