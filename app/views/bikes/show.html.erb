@@ -30,6 +30,7 @@
     <h3>Marque : <%= @bike.brand %></h3>
     <h3>Accessoires : <%= @bike.accessories %></h3>
     <h3>Proposé par : <%= @user.first_name %> <%= @user.last_name %></h3>
+
     <div>
     <h2>Formulaire de réservation</h2>
     <%= simple_form_for @booking , url: bike_bookings_path(bike_id: @bike.id), method: :post do |f| %>
@@ -47,6 +48,7 @@
     <%= f.submit 'Réserver', class:"btn btn-primary" %>
     <% end %>
     </div>
+    
 </div>
  <div class= "recapcontainer">
   <div class= recaplayout>
