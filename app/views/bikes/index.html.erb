@@ -11,7 +11,11 @@
         <div class="col-5-5">
           <%= link_to bike_path(bike), class: 'text-decoration-none' do %>
          <div class="card-product">
-            <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
+          <% if bike.photos.present? %>
+              <%= cl_image_tag bike.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <% else  %>
+              <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
+          <% end %>
             <div class="product-info">
               <div class="product-details">
                 <h2><%= bike.name %></h2>

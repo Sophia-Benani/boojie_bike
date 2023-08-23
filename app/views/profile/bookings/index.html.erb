@@ -5,10 +5,14 @@
     <% @bookings.each do |booking| %>
       <div class="col-6">
         <div class="card-product">
-          <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
+          <% bike = Bike.find(booking.bike_id) %>
+          <% if bike.photos.present? %>
+              <%= cl_image_tag bike.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <% else  %>
+              <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
+          <% end %>
           <div class="product-info">
             <div class="product-details">
-              <% bike = Bike.find(booking.bike_id) %>
               <h2><%= bike.name %></h2>
               <p>Réservé</p>
               <p>du <%= booking.start_date %></p>

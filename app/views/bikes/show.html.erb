@@ -44,24 +44,22 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Formulaire de réservation</h5>
-          <form>
-            <div class="mb-3">
-              <input type="hidden" name="user_id" value="123">
-            </div>
-            <div class="mb-3">
-              <label for="start_date" class="form-label">Début</label>
-              <input type="text" class="form-control" id="start_date" data-controller="datepicker">
-            </div>
-            <div class="mb-3">
-              <label for="end_date" class="form-label">Fin</label>
-              <input type="text" class="form-control" id="end_date" data-controller="datepicker">
-            </div>
-            <button type="submit" class="btn btn-primary">Réserver</button>
-          </form>
+            <%= simple_form_for @booking , url: bike_bookings_path(bike_id: @bike.id), method: :post do |f| %>
+              <%= f.input :user_id,
+                          as: :hidden,
+                          input_html: { value: current_user.id } %>
+              <%= f.input :start_date,
+                          as: :string,
+                          label: "Début",
+                          input_html: { data: { controller: "datepicker"}}%>
+              <%= f.input :end_date,
+                          as: :string,
+                          label: "Fin",
+                          input_html: { data: { controller: "datepicker"}} %>
+              <%= f.submit 'Réserver', class:"btn btn-primary" %>
+              <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
-
 </div>
