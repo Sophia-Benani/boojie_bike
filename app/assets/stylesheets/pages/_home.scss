@@ -1,1 +1,50 @@
-// Specific CSS for your home-page
+.btn-flat {
+  display: flex;
+  color: white;
+  width: 40px;
+  border-radius: 4px;
+  background: rosybrown;
+  justify-content: center;
+}
+
+.btn-flat:hover {
+  background: rosybrown;
+  color: white;
+}
+
+
+.stack {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 100px;
+  margin-left: 50px;
+  bottom: 20px;
+  height: auto;
+}
+
+.box_left {
+  background: #EAF7FF;
+  border-radius: 25px;
+  height: 147px;
+  width: 250px;
+  padding: 64px 10px 23px 14px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.box_center {
+  background: #EAF7FF;
+  border-radius: 25px;
+  height: 147px;
+  width: 250px;
+  padding: 64px 10px 23px 14px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box_right {
+  background: #EAF7FF;
+  border-radius: 25px;
+  height: 147px;
+  width: 250px;
+  padding: 64px 10px 23px 14px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
