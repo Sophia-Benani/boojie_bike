@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-    <h1>Boojie Bike <strong>Le Vélo</strong> pour <strong>Tous</strong>!</h1>
+    <h1>Boojee Bike <strong>Le Vélo</strong> pour <strong>Tous</strong>!</h1>
     <p>Partez à la conquête de l'univers en pédalant</p>
   </div>
 </div>
@@ -9,14 +9,16 @@
   <div class="flex-container">
     <% @bikes.each do |bike| %>
       <div class="card-product">
-        <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
+      <% bike.photos.each do |photo| %>
+         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
           <div class="product-info">
             <div class="product-details">
               <h2><%= link_to bike.name, bike_path(bike) %></h2>
               <p><%= bike.address %></p>
             </div>
               <div>
-                <h2 class="price">1999€</h2>
+                <h2 class="price"><%= bike.price %>€/par jours</h2>
               </div>
           </div>
       </div>
