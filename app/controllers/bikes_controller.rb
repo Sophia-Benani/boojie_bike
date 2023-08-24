@@ -1,6 +1,14 @@
 class BikesController < ApplicationController
   def index
     @bikes = Bike.all
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { bike: bike }),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
@@ -21,7 +29,6 @@ class BikesController < ApplicationController
       redirect_to bikes_path, notice: 'Bike was successfully created.'
     end
   end
-
 end
 
 private
