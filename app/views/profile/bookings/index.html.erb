@@ -1,27 +1,48 @@
-<h1>Mes reservations</h1>
-
- <div class="container">
-  <div class="row gap-3 w-75 p-3">
-    <% @bookings.each do |booking| %>
-      <div class="col-6">
-        <div class="card-product">
-          <% bike = Bike.find(booking.bike_id) %>
-          <% if bike.photos.present? %>
-              <%= cl_image_tag bike.photos.first.key, height: 300, width: 400, crop: :fill %>
-          <% else  %>
-              <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
-          <% end %>
-          <div class="product-info">
-            <div class="product-details">
-              <h2><%= bike.name %></h2>
-              <p>Réservé</p>
-              <p>du <%= booking.start_date %></p>
-              <p>au <%= booking.end_date %></p>
-              <p> Cout par jour <%= bike.price %> €</p>
-            </div>
-          </div>
-        </div>
-    </div>
-     <% end %>
-  </div>
+<div class="container my-2">
+<h2>Mes reservations</h2>
 </div>
+
+ <div class="container my-2">
+    <table class="table table-hover mt-3">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Vélo réservé</th>
+          <th scope="col">Début</th>
+          <th scope="col">Fin</th>
+          <th scope="col"> Cout par jour</th>
+          <th scope="col">Total</th>
+          <th scope="col">Modifier</th>
+          <th scope="col">Supprimer</th>
+        </tr>
+      </thead>
+        <% index = 0 %>
+        <% total = 0 %>
+      <tbody>
+        <% @bookings.each do |booking| %>
+          <% bike = Bike.find(booking.bike_id) %>
+          <% days = (booking.end_date - booking.start_date).to_i %>
+          <% price = bike.price %>
+          <% amount = days * price %>
+          <tr>
+            <th scope="row"><%= index +=1 %></th>
+            <td><%= link_to bike.name, bike_path(bike)%></td>
+            <td><%= booking.start_date %></td>
+            <td><%= booking.end_date %></td>
+            <td><%= bike.price %> €</td>
+            <td><%= amount %> €</td>
+            <td><%= link_to "🖊", edit_profile_booking_path(booking)%></td>
+            <td><%= link_to "🗑", profile_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
+          </tr>
+          <% total += amount %>
+        <% end %>
+                <tr class="table-success">
+                  <th scope="row"></th>
+                  <td colspan="4" class ="align-center"> <b> Cout total de mes locations</b> </td>
+                  <td><b><%= total %> €</b></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+      </tbody>
+    </table>
+  </div>
