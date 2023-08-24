@@ -63,7 +63,7 @@
           <% end %>
           <div class="product-info">
             <div class="product-details">
-              <h2><%= bike.name %></h2>
+              <h2><%= link_to bike.name, bike_path(bike)%></h2>
               <p class="price"><%= bike.price %>/€ par jour</p>
             </div>
             <div><%= link_to "🗑", profile_bike_path(bike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>

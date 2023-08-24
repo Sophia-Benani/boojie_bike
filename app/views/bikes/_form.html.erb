@@ -1,5 +1,5 @@
 <div class="blue-card">
-<% url = bike.new_record? ? bikes_path : bike_path(bike) %>
+<% url = bike.new_record? ? bikes_path : profile_bike_path(bike) %>
 <% method = bike.new_record? ? :post : :patch %>
   <%= form_with(model: bike, class: "formulaire", url: url, method: method) do |form| %>
     <h1 class="blue-text">Mon annonce</h1>
