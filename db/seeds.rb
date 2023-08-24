@@ -17,8 +17,8 @@ elodie = User.create!({ first_name: "Elodie", last_name:"Faure", email: "efaure@
 david = User.create!({ first_name: "David", last_name:"Berchier", email: "david-b@bla.com", password: "azerty" })
 
 puts "Creating bikes..."
-electro = Bike.create!({name: "Electro", brand:"O2feel", address: "Bordeaux", category: "électrique", description: "on l'appelle speedy", accessories: "panier", price: 5, user_id: elodie.id})
-bolide =  Bike.create!({name: "Bolide", brand:"Peugeot", address: "Paris", category: "VTT", description: "géniale en forêt", accessories: "anti-vol", price: 5, user_id: david.id })
+electro = Bike.create!({name: "Electro", brand:"O2feel", address: "120 avenue Louis Barthou, Bordeaux", category: "électrique", description: "on l'appelle speedy", accessories: "panier", price: 5, user_id: elodie.id})
+bolide =  Bike.create!({name: "Bolide", brand:"Peugeot", address: "68 rue Jules Guesde, Bordeaux", category: "VTT", description: "géniale en forêt", accessories: "anti-vol", price: 5, user_id: david.id })
 
 puts "Creating bookings..."
 Booking.create!({ start_date: "18/02/2023", end_date: "20/02/2023", user_id: david.id, bike_id: electro.id })
