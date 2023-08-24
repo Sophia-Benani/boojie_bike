@@ -28,22 +28,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-              <h5 class="card-title">Informations sur le vélo</h5>
-              <p class="card-text">Categorie : <%= @bike.category %></p>
-              <p class="card-text">Description : <%= @bike.description %></p>
-              <p class="card-text">Marque : <%= @bike.brand %></p>
-              <p class="card-text">Accessoires : <%= @bike.accessories %></p>
-              <p class="card-text">Prix : <%= @bike.price %>€ par jour</p>
-              <%# <p class="card-text">Proposé par : <%= @user.first_name %> <%# @user.last_name %>
-          </div>
-      </div>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-titles">Informations sur le vélo </h4>
+    <p class="card-text"><strong>Categorie :</strong> <%= @bike.category %></p>
+    <p class="card-text"><strong>Description :</strong> <%= @bike.description %></p>
+    <p class="card-text"><strong>Marque :</strong> <%= @bike.brand %></p>
+    <p class="card-text"><strong>Accessoires :</strong> <%= @bike.accessories %></p>
+    <p class="card-text"><strong>Prix :</strong> <%= @bike.price %>€ par jour</p>
+    <p class="card-text"><strong>Proposé par :</strong> <%= @user.first_name %> <%= @user.last_name %></p>
+  </div>
+</div>
+
     </div>
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Formulaire de réservation</h5>
+          <h4 class="card-titles">Formulaire de réservation</h4>
             <%= simple_form_for @booking , url: bike_bookings_path(bike_id: @bike.id), method: :post do |f| %>
               <%= f.input :user_id,
                           as: :hidden,
