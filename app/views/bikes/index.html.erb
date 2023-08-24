@@ -5,36 +5,44 @@
   </div>
 </div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
 <div class="container">
+
+  <div class="flex-card-map">
+
+    <div class="card-bike col-9">
       <div class="row gap-3 w-75 p-3">
         <% @bikes.each do |bike| %>
         <div class="col-5-5">
           <%= link_to bike_path(bike), class: 'text-decoration-none' do %>
-         <div class="card-product">
-          <% if bike.photos.present? %>
-              <%= cl_image_tag bike.photos.first.key, height: 300, width: 400, crop: :fill %>
-          <% else  %>
-              <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
-          <% end %>
-            <div class="product-info">
-              <div class="product-details">
-                <h2><%= bike.name %></h2>
-                <p><%= bike.address %></p>
-              </div>
-              <div>
-                <h2 class="price"><%= bike.price %>/€ par jour</h2>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        </div>
 
+          <div class="card-product">
+            <% if bike.photos.present? %>
+              <%= cl_image_tag bike.photos.first.key, height: 300, width: 400, crop: :fill %>
+            <% else  %>
+              <img src="https://pi-pop.fr/wp-content/uploads/2023/05/velo-detoure-1536x1025.jpg" alt="">
+            <% end %>
+              <div class="product-info">
+                  <div class="product-details">
+                    <h2><%= bike.name %></h2>
+                    <p><%= bike.address %></p>
+                  </div>
+                    <div>
+                      <h2 class="price"><%= bike.price %>/€ par jour</h2>
+                    </div>
+              </div>
+          </div>
+          <% end %>
+        </div>
         <% end %>
       </div>
+    </div>
+
+    <div class="col-3" id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+  </div>
+
 </div>

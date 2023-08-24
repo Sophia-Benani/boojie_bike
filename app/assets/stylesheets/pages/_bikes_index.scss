@@ -1,0 +1,22 @@
+.flex-card-map {
+  display: flex;
+  justify-content: space-between;
+}
+
+#map {
+  height: 75vh;
+  position: sticky;
+  top: 0;
+}
+
+@media(max-width: 992px) {
+  .flex-card-map {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .flex-card-map {
+    grid-template-columns: 1fr;
+  }
+}
