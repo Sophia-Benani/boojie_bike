@@ -1,0 +1,24 @@
+<div class="container my-2">
+<h2>Modifier ma reservation</h2>
+  <div class="mx-auto w-50">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Formulaire de réservation (modification)</h5>
+            <%= simple_form_for @booking , url: profile_booking_path(params[:id]), method: :patch do |f| %>
+              <%= f.input :user_id,
+                          as: :hidden,
+                          input_html: { value: current_user.id } %>
+              <%= f.input :start_date,
+                          as: :string,
+                          label: "Début",
+                          input_html: { data: { controller: "datepicker"}}%>
+              <%= f.input :end_date,
+                          as: :string,
+                          label: "Fin",
+                          input_html: { data: { controller: "datepicker"}} %>
+              <%= f.submit 'Réserver', class:"btn btn-primary" %>
+              <% end %>
+        </div>
+      </div>
+    </div>
+</div>

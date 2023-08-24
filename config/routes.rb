@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :new, :create]
   end
   namespace :profile do
-    resources :bookings, only: [:index]
-    resources :bikes, only: [:index]
+    resources :bookings, only: [:index, :destroy, :edit, :update]
+    resources :bikes, only: [:index, :destroy, :edit, :update]
   end
 end
