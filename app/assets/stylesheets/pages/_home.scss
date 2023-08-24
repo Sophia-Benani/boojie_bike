@@ -1,5 +1,22 @@
+// .page-container {
+//   margin: 0;
+//   border-radius: 0;
+
+// }
+
+.advantage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F24987;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-decoration: underline;
+}
+
 .stack {
   display: flex;
+  padding-bottom: 2em;
   justify-content: center;
   align-items: flex-end;
   gap: 100px;
@@ -10,27 +27,35 @@
 
 .box_left {
   background: #EAF7FF;
+  border: thick double #F24987;
   border-radius: 25px;
-  width: 250px;
+  width: 257px;
   padding: 24px 10px 23px 14px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding-bottom: 2em;
+
 
 }
 .box_center {
   background: #EAF7FF;
+  border: thick double #F24987;
   border-radius: 25px;
-  width: 250px;
+  width: 257px;
   padding: 24px 10px 23px 14px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding-bottom: 2em;
+
 
 }
 
 .box_right {
   background: #EAF7FF;
+  border: thick double #F24987;
   border-radius: 25px;
-  width: 250px;
+  width: 257px;
   padding: 24px 10px 23px 14px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding-bottom: 2em;
 
 }
 
@@ -44,8 +69,43 @@ h5 {
 }
 
 p {
+  color: #1F438C;
   font-size: 14px;
+  font-weight: bold;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.footer {
+  display: flex;
+  background-color: #EAF7FF;
+  color: #F24987;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
+.fab-fa-twitter {
+  display: flex;
+  justify-content: flex-end;
+  height: 30px ;
+  width: 30px ;
+
+}
+
+.fab-fa-instagram {
+  display: flex;
+  justify-content: flex-end;
+  height: 30px ;
+  width: 30px ;
+}
+
+.fab-fa-github {
+  display: flex;
+  justify-content: flex-end;
+  height: 30px ;
+  width: 30px ;
 }

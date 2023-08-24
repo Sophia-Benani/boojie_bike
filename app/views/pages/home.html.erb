@@ -1,15 +1,18 @@
-<div class="banner" style= "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.westend61.de/images/0001047398pw/happy-young-couple-riding-together-on-one-bicycle-on-country-road-UUF15447.jpg);">
+<%# <div class="page-container"> %>
+<div class="banner" style= "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1595483/pexels-photo-1595483.jpeg?cs=srgb&dl=pexels-adam-dubec-1595483.jpg&fm=jpg); background-size:fill">
   <div class="container">
     <h1>Boojee Bike</h1>
     <p>Louer un vélo, n'importe où, entre particulier !</p>
-    <div class="text-decoration-none view-button"><%= link_to "Voir les vélos disponibles", bikes_path %></div>
+    <div class= 'd-flex justify-content-center'>
+    <%= link_to "Voir les vélos disponibles", bikes_path, class:"view-button" %>
+    </div>
+  </div>
 </div>
-</div>
-<div class="advantage"><h3>Les avantages ?</h3></div>
+<div class="advantage"><h3></h3></div>
   <div class="stack">
     <div class="box_left">
     <div class="content">
-      <h5>Réduire notre impact environnemental:</h5>
+      <h5>Transport durable:</h5>
       <p>En louant un vélo, roulez vers un avenir plus durable, plus responsable, et réduisez votre empreinte écologique !</p>
     </div>
     </div>
@@ -23,4 +26,19 @@
       <h5>Des bienfaits pour la santé:</h5>
       <p>Pratiquer une activité régulière permet de rendre le système immunitaire plus actif, renforce votre système musculaire !</p>
     </div>
+  </div>
+  <%# </div> %>
+  <div class="footer-container">
+  <div class="footer">2023 Boojee Bike. Tous droits réservés.
+   <div class="social-icons">
+    <a href="lien_vers_twitter" target="_blank">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="lien_vers_instagram" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="lien_vers_github" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+  </div></div>
   </div>
