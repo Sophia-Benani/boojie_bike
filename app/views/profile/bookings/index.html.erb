@@ -2,7 +2,7 @@
 <h2>Mes reservations</h2>
 </div>
 
- <div class="container my-2">
+ <div class="container my-2" id="accordionExample">
     <table class="table table-hover mt-3">
       <thead>
         <tr>
@@ -31,7 +31,13 @@
             <td><%= booking.end_date %></td>
             <td><%= bike.price %> €</td>
             <td><%= amount %> €</td>
-            <td><%= link_to "🖊", edit_profile_booking_path(booking)%></td>
+
+            <td >
+            <a data-bs-toggle="collapse" href="#bookingform<%=booking.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+            🖊
+            </a>
+            </td>
+
             <td><%= link_to "🗑", profile_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
           </tr>
           <% total += amount %>
@@ -45,4 +51,34 @@
                 </tr>
       </tbody>
     </table>
+    <% @bookings.each do |booking| %>
+    <div class="collapse" id="bookingform<%=booking.id%>" data-bs-parent="#accordionExample">
+  <div class="card card-body">
+    <div class="container my-2" >
+      <h2>Modifier ma reservation</h2>
+        <div class="mx-auto w-50">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Formulaire de réservation (modification)</h5>
+                  <%= simple_form_for booking , url: profile_booking_path(booking.id), method: :patch do |f| %>
+                    <%= f.input :user_id,
+                                as: :hidden,
+                                input_html: { value: current_user.id } %>
+                    <%= f.input :start_date,
+                                as: :string,
+                                label: "Début",
+                                input_html: { data: { controller: "datepicker"}}%>
+                    <%= f.input :end_date,
+                                as: :string,
+                                label: "Fin",
+                                input_html: { data: { controller: "datepicker"}} %>
+                    <%= f.submit 'Réserver', class:"btn btn-primary" %>
+                    <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
   </div>
+  </div>
+<% end %>
+</div>
