@@ -1,10 +1,15 @@
 .flex-card-map {
-  display: flex;
-  justify-content: space-between;
-}
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
 
-#map {
-  height: 75vh;
+.card-bike { grid-area: 1 / 1 / 6 / 4; }
+.map { grid-area: 1 / 4 / 6 / 6; }
+
+.map {
   position: sticky;
   top: 0;
 }
