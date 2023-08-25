@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'stimulus/search'
   get 'bookings/index'
   get 'bikes/index'
   get 'bikes/show'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   resources :bikes, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:index, :new, :create]
   end
+  get "search-map-results", to: "bikes#search_map_results", as: "search-map-results"
   namespace :profile do
     resources :bookings, only: [:index, :destroy, :edit, :update]
     resources :bikes, only: [:index, :destroy, :edit, :update]

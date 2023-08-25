@@ -29,10 +29,19 @@ class BikesController < ApplicationController
       redirect_to bikes_path, notice: 'Bike was successfully created.'
     end
   end
-end
 
-private
+  def search_map_results
+    @bikes =  if params[:query] == ""
+                Bike.all
+              else
+                Bike.search_by_address(params[:query])
+              end
+    render partial: 'bikes/partials/bike_results'
+  end
 
-def bike_params
-  params.require(:bike).permit(:name, :brand, :category, :description, :address, :accessories, :price, photos: [])
+  private
+
+  def bike_params
+    params.require(:bike).permit(:name, :brand, :category, :description, :address, :accessories, :price, photos: [])
+  end
 end

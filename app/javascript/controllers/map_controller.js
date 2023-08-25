@@ -6,7 +6,8 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    url: String
   }
 
   connect() {
@@ -20,6 +21,9 @@ export default class extends Controller {
     this.#fitMapToMarkers()
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
+    this.map.on('load', () => {
+      this.getSearchValue()
+    });
   }
 
   #addMarkersToMap() {
@@ -40,5 +44,18 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
+
+
+  getSearchValue() {
+    const searchBar = document.querySelector(".mapboxgl-ctrl-geocoder--input")
+    searchBar.addEventListener('keyup', () => {
+      fetch(`${this.urlValue}?query=${searchBar.value}`)
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector(".cards-results").innerHTML = data
+      })
+
+    })
   }
 }
