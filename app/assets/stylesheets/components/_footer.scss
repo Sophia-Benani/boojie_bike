@@ -6,7 +6,17 @@
   font-weight: bold;
   text-align: center;
   padding: 20px;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
-  position: absolute;
+}
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
 }
