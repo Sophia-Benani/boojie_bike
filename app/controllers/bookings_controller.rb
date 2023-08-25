@@ -5,12 +5,11 @@ class BookingsController < ApplicationController
    @bookings = @bike.bookings
   end
 
-
   def create
     @booking = Booking.new(booking_params)
     @booking.bike_id = params[:bike_id]
     if @booking.save
-      redirect_to bike_path(@booking.bike), notice: 'Réservation créée'
+      redirect_to profile_bookings_path, notice: 'Réservation créée'
     else
       redirect_to bike_path(@booking.bike)
     end
